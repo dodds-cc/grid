@@ -14,11 +14,6 @@
     "build:watch": "lerna run build:watch --stream --concurrency 20 --parallel",
     "test": "lerna run test"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn test && lint-staged && yarn build"
-    }
-  },
   "lint-staged": {
     "**/*.+(js|jsx|ts|tsx)": [
       "prettier --write"

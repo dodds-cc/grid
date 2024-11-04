@@ -1447,7 +1447,11 @@ const Grid: React.FC<GridProps & RefAttribute> = memo(
       /* Scroll natively */
       if (wheelingRef.current) return;
 
-      let dx = isScrollingHorizontally ? deltaY : deltaX;
+      const isMac = /Mac/i.test(navigator.userAgent);
+
+      let dx = isScrollingHorizontally ? (isMac ? deltaX : deltaY) : deltaX;
+
+      // let dx = isScrollingHorizontally ? deltaY : deltaX;
       let dy = deltaY;
 
       /* Scroll only in one direction */
